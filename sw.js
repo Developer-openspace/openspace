@@ -33,7 +33,17 @@ self.addEventListener('install', evt=>{
     })
   )
 });
-
+//cache limit function
+const limitCacheSize=(name,size)=>{
+    cache.open(name).then(cache =>{
+        cache.keys().then(keys=>{
+            if(keys.length >size){
+                cache.delete(keys[0].then(
+                    limitCacheSize(name,size)))
+            }
+        })
+    })
+}
 //activate service worker.
 self.addEventListener('activate',evt=>{
     evt.waitUntil(
@@ -51,9 +61,14 @@ self.addEventListener('fetch', evt=>{
             return cacheRes || fetch(evt.request).then(fetchRes=>{
                 return cache.open(dynamicCache).then(cache=>{
                     cache.put(evt.request.url, fetchRes.clone());
+                    limitCacheSize(dynamicCache,15);
                     return fetchRes;
                 })
             });
-        }).catch(()=> caches.match('/pages/Fallback.html'))
+        }).catch(()=> {
+            if(evt.request.url.indexOf('.html')>-1){
+              return  caches.match('/pages/Fallback.html');
+            }
+        })
     )
 });
