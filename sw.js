@@ -1,8 +1,8 @@
- const staticCacheName='site-static';
+ const staticCacheName='site-static-v3';
  const dynamicCache='site-dynamic';
 
- const assests=[
-    '/',
+ const assets=[
+     '/',
     '/index.html',
     '/pages/Fallback.html',
     '/css/materialize.min.css',
@@ -20,10 +20,11 @@
     '/img/IMG-20220509-WA0003.jpg',
     '/img/IMG-20220509-WA0004.jpg',
     '/img/IMG-20220509-WA0005.jpg',
-    'https://platform.linkedin.com/badges/js/profile.js',
+    '/manifest.json',
     'https://fonts.googleapis.com/icon?family=Material+Icons',
     'https://fonts.gstatic.com/s/materialicons/v128/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2'
 ]
+
 //installing service worker
 self.addEventListener('install', evt=>{
   evt.waitUntil(
@@ -58,13 +59,11 @@ self.addEventListener('activate',evt=>{
 self.addEventListener('fetch', evt=>{
     evt.respondWith(
         caches.match(evt.request).then(cacheRes=>{
-            return cacheRes || fetch(evt.request).then(fetchRes=>{
-                return cache.open(dynamicCache).then(cache=>{
-                    cache.put(evt.request.url, fetchRes.clone());
-                    limitCacheSize(dynamicCache,15);
-                    return fetchRes;
-                })
-            });
+            return cacheRes || fetch(evt.request).then(async fetchRes=>{
+                const cache = await caches.open(dynamicCache);
+                cache.put(evt.request.url, fetchRes.clone());
+                return fetchRes;
+            })
         }).catch(()=> {
             if(evt.request.url.indexOf('.html')>-1){
               return  caches.match('/pages/Fallback.html');
