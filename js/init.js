@@ -17,6 +17,18 @@ document.addEventListener('DOMContentLoaded', function(){
     //  indicators: true});
      
   }) 
+//setupUI for logged in and logged out users
+const loggedinLink=document.querySelectorAll('.logged-in')
+const loggedoutLink=document.querySelectorAll('.logged-out')
 
+export const setupUI=(user)=>{
+  if(user){
+    loggedinLink.forEach(item=>item.style.display='block')
+    loggedoutLink.forEach(item=>item.style.display='none')
+  }else{
+    loggedinLink.forEach(item=>item.style.display='none')
+    loggedoutLink.forEach(item=>item.style.display='block')
+  }
+}
 
   

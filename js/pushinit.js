@@ -28,12 +28,22 @@ if(Notification.permission === 'granted'){
 };
 
 //geolocation
-/*const successCallback=(position)=>{
+const successCallback=(position)=>{
     //get position then store it in firestore
-    console.log(position.coords)
-}
+    //console.log(position.coords)
+    const {latitude, longitude}= position.coords;
+    fetch(`https://api.opencagedata.com/geocode/v1/json?q={latitude}+{longitude}&key=7c4b09ec3720467eb60d9ffe0714c9c1`)
+    .then(res=>
+        res.json()
+       )
+        .then(console.log)
+       
+  
+        
+    
+    }
 const errorCallback=(error)=>{
     console.error(error);
 }
  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
- */
+ 

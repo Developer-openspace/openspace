@@ -20,83 +20,108 @@
     <div class="nav-wrapper container">
       <a id="logo-container" href="../index.html" class="brand-logo orange-text text-darken-5 customfont left"><i class="material-icons" style="font-size: larger;">child_care</i>Charitable</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="./Events.html" class="active">Events</a></li>
-        <li><a href="./Gallery.html">Gallery</a></li>
+        <li class="logged-in" style="display: none;"><a href="../index.html" class="grey-text">Home</a></li>
+        <li class="logged-in" style="display: none;"><a href="./Events.html" class="active">Events</a></li>
+        <li class="logged-in" style="display: none;"><a href="./Gallery.html" class="grey-text">Gallery</a></li>
+        <li class="logged-in" style="display: none;"><a href="#" class="grey-text modal-trigger  used" data-target="modal-account">Account</a></li>
+        <li class="logged-in" style="display: none;"><a href="#" class="grey-text used" id="logout">Logout</a></li>
+        <li class="admin" style="display: none;"><a href="#" class="grey-text modal-trigger used" data-target="modal-create">Add Event</a></li>
+        <li class="logged-out" style="display: none;"><a href="#" class="grey-text used" id="bn-signup">Sign in with Google</li>
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="./Events.html" class="active">Events</a></li>
-        <li><a href="./Gallery.html">Gallery</a></li>
+        <li class="logged-in" style="display: none;"><a href="../index.html">Home</a></li>
+        <li class="logged-in" style="display: none;"><a href="./Events.html" class="active">Events</a></li>
+        <li class="logged-in" style="display: none;"><a href="./Gallery.html">Gallery</a></li>
+        <li class="logged-in"  style="display: none;"><a href="#" class="grey-text modal-trigger used" data-target="modal-account">Account</a></li>
+        <li class="logged-in" style="display: none;"><a href="#" class="grey-text used" id="logout1">Logout</a></li>
+        <li class="admin" style="display: none;"><a href="#" class="grey-text modal-trigger used" data-target="modal-create">Add Event</a></li>
+        <li class="logged-out" style="display: none;"><a href="#" class="grey-text used" id="bn-signup1">Sign in with Google</li>
       </ul>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons orange-text">menu</i></a>
     </div>
   </nav>
+  
+
+  
+  <!-- Answer MODAL -->
+  <div id="modal-answer" class="modal">
+    <div class="modal-content">
+      <h4>Fun activity:</h4><br />
+      <form id="answer-form">
+        <div class="input-field">
+          <input type="text" id="answer" name="answer" required />
+          <label for="answer">Enter Your Answer</label>
+        </div>
+        <button class="btn orange lighten-1 z-depth-0">Submit</button>
+        <p class="error pink-text center-align"></p>
+      </form>
+    </div>
+  </div>
+  <!--modal-group-->
+  <div id="modal-group" class="modal">
+    <div class="modal-content">
+      <h4>Join Group</h4><br />
+      <form id="group-form">
+        <div class="input-field">
+          <input type="number" id="telnumber" name="telnumber" required />
+          <label for="telnumber">Enter Your Whatsapp Number</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="username" name="username" required />
+          <label for="useranswer">Enter Your Name (first name only)</label>
+        </div>
+        <button class="btn orange lighten-1 z-depth-0">Submit</button>
+        <p class="error pink-text center-align"></p>
+      </form>
+    </div>
+  </div>
+  <!-- Add Event MODAL -->
+  <div id="modal-create" class="modal">
+    <div class="modal-content">
+      <h4>Create Guide</h4><br />
+      <form id="create-form">
+        <div class="input-field">
+          <input type="text" id="title" required>
+          <label for="title">Guide Title</label>
+        </div>
+        <div class="input-field">
+          <textarea id="content" class="materialize-textarea" required></textarea>
+          <label for="content">Guide Content</label>
+        </div>
+        <button class="btn orange lighten-1 z-depth-0">Create</button>
+      </form>
+    </div>
+  </div>
+  <!--support modal-->
+<div id="modal-support" class="modal">
+  <div class="modal-content">
+    <h5 class="light">Contact Our Developers on <q>+254703733399</q> to support their work.</h5><h6 class="light">
+      Any job offers or freelance opportunities or  you want a website, a blog or anything of the sort. Call the number above. Or text on <e class="green-text">Whatsapp</e> : +25475442364</h6>
+  </div>
+</div>
+  <!-- ACCOUNT MODAL -->
+  <div id="modal-account" class="modal">
+    <div class="modal-content center-align">
+      <h4>Account details:</h4><br />
+      <div class="account-details"></div>
+    </div>
+  </div>
+  
     
  
   <div class="container">
     <div class="section">
 
-      <!--   Icon Section   -->
+      <!--   event details   -->
       <div class="row">
-        <div class="col s24 m4">
-          <div class="icon-block"> <br/><br/>
-            <h5 class="center">CHARITY WORK on 7th May.2022</h5>
+          <div class="icon-block" id="event-detail"> <br/><br/>
 
-            <p class="light">We held a charity walk around KISII campus and KISII TOWN.. We walk along the streets of KISII TOWN looking for homeless kids and giving them food and snacks to eat..We meet <q>Odhiambo</q> one among the kids we mate in the streets , this boy has a talent, he is a talented acrobat..he stood on one hand and perform some unique body tricks for us.. he was so entertaining.. such kids need help and support for the talent.. to help this boy <I>TEXT US ON THE GROUP CHAT YOU JOIN ON THE HOMEPAGE</I>.</p>
-          </div>
         </div>
 
-        <div class="col s12 m4">
-          <div class="icon-block"><br/><br/>
-            <h5 class="center">KISII VOCATIONAL AND REHABILITATION CENTER on 9th May.2022</h5>
-
-            <p class="light">We collected donations amd went to KISII VOCATIONAL AND REHABILITATION CENTER.. This event started earlier enough by asking willing friends to donate, With God mercies we were able to collect many donations from stationery like clothing to money and credits for this event. Then on 9th, we started our journey to KISII VOCATIONAL AND REHABILITATION CENTER for the activity... </p>
-          </div>
         </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block"><br/><br/>
-            <h5 class="center">FUN DAY AT RONGO UNIVERSITY on 10th May.2022</h5>
-
-            <p class="light center">We went to RONGO UNIVERSITY for a fun day. Celebrating five months of our program. It was quite fun to join our friends in RONGO UNIVERSITY.. We had outdoor and indoor games..<q>Dedi</q> one of the members of team Red showed great competition against team blue which held only boys ...its was fun . We can't wait for another event like this. </p>
-          </div>
-        </div>
-
-      </div>
-
-
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s24 m4">
-          <div class="icon-block"> <br/><br/>
-            <h5 class="center">FLAMINGO SCOUT FOR HOPE on 11th May.2022</h5>
-
-            <p class="light">A team of scouts went to old peoples' camps to offer any help. We cooked for them and wash their clothes and dishes...its was so great to help the old, we held a change to meet a kind old guy called <q>musa</q> , he was so grateful..that's why we mention his name here to show appreciation...</p>
-          </div>
-        </div>
-
-        
-
-      </div>
-
 
     </div>
-  </div>
-
-  <!-- GUIDE LIST -->
-  <div class="container" style="margin-top: 40px;">
-    <ul class="collapsible z-depth-0 guides" style="border: none;">
-      <li>
-        <div class="collapsible-header grey lighten-4">Event 1</div>
-        <div class="collapsible-body white">was great</div>
-      </li>
-      <li>
-        <div class="collapsible-header grey lighten-4">Event 2</div>
-        <div class="collapsible-body white">was great</div>
-      </li>
-    </ul>
   </div>
   
     <footer class="page-footer amber lighten-5 ">
@@ -116,8 +141,9 @@
       </div>
       <div class="col l3 s12"><br/>
         <div class="badge-base LI-profile-badge " data-locale="en_US" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="imrany-tech-60645323a" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://ke.linkedin.com/in/imranyy?trk=profile-badge"><i class="material-icons">fitbit</i>My LinkedIn</a></div>
-        <a class="green-text text-darken-3" href="http://wa.me/+254754423664"><i class="material-icons">whatsapp</i>My Whatsapp</a>
-       </div>
+        <a class="green-text text-darken-3" href="http://wa.me/+254754423664"><i class="material-icons">whatsapp</i>My Whatsapp</a><br/><br/><br/>
+        <button style="display: none;" class="btn-small grey white-text modal-trigger waves-effect waves-light logged-in" data-target="modal-support" style="border-radius:2px ; font-family: monospace; z-index: 0;">Support My work <i class="material-icons white-text left">mood</i></button>
+      </div>
      
     </div>
   </div>
@@ -130,10 +156,11 @@
 
 
     <!--  Scripts-->
-    <script src="../js/auth.js"></script>
-    <script src="../firebaseConfig.js"></script>
-  <script src="../js/materialize.min.js"></script>
-  <script src="../js/init.js"></script>
-  <script src="../js/app.js"></script>
+    <script src="../js/auth.js" type="module"></script>
+    <script src="../firebaseConfig.js" type="module"></script>
+    <script src="../js/materialize.min.js"></script>
+    <script src="../js/init.js" type="module"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/pushinit.js"></script>
 </body>
 </html> 
