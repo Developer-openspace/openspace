@@ -1,8 +1,8 @@
 
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
-  import {getAuth, GoogleAuthProvider, signInWithPopup} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
-  import{getFirestore} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
+  import {getAuth, GoogleAuthProvider, signInWithPopup,signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
+  import{getFirestore,collection,getDocs,addDoc} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,15 +20,86 @@
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  export const auth=getAuth(app);
-  export const db=getFirestore(app);
-
+  const auth=getAuth(app);
+   const db=getFirestore(app);
+//Authentication
   const provider= new GoogleAuthProvider();
-
+//signin
   export  const signInWithGoogle=()=>{
     signInWithPopup(auth, provider).then((result)=>{
-      console.log(result)
-    }).catch((err)=>{
-      console.log(err)
+      //console.log(result)
+      const name=result.user.displayName;
+      const email= result.user.email;
+      const pic=result.user.photoURL;
+
+      localStorage.setItem("name",name)
+      localStorage.setItem("email",email)
+      localStorage.setItem("pic",pic)
+      showNotification();
+    }).catch(()=>{
+      //console.log(err.message)
+      showNotificationErr()
+    })
+ }
+  //logOut
+  export const signout=()=>{
+    signOut(auth).then(()=>{
+      showNotificationSignout()
+    }).catch(err=>{
+      console.log(err.message)
     })
   }
+
+  //firestore collectionref and getting docs
+  const collRef= collection(db,'notifications')
+  getDocs(collRef).then((snapshot)=>{
+    console.log(snapshot)
+  });
+
+  //firestore adding doc
+
+
+   //signin notification
+   function showNotification(){
+    const notification= new Notification('Successfull Sign in',{
+        body:localStorage.getItem("name"),
+        icon:localStorage.getItem("pic"),
+        timeout:3000,
+  });
+    notification.onclick=function(){
+      window.parent.focus();
+      this.close();
+    };
+}  //signin notification error
+ function showNotificationErr(){
+   const notification=new Notification('Unsuccessfull Sign in',{
+     body:"Try again...",
+     icon:'./img/icons/icon-72x72.png',
+     timeout:3000
+   });
+   notification.onclick=function(){
+     window.parent.focus();
+     this.close();
+   }
+ } //signout notification
+ function showNotificationSignout(){
+   const notification =new Notification('You have Log out',{
+     body:'Sad to see you go..Come back soon..they is more going around here',
+     icon:'./img/icons/icon-72x72.png',
+     timeout:2000
+   });
+   notification.onclick=function(){
+     window.parent.focus();
+     this.close();
+   }
+ }
+ //listening to user auth status change 
+ 
+   auth.onAuthStateChanged(user=>{
+     //going to controll what users see if logged in or out
+     if(user){
+       console.log('user is logged in', user)
+     } else {
+       console.log('user is logged outer',user)
+     }
+   })

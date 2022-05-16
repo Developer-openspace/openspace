@@ -1,29 +1,31 @@
-/*console.log(Notification.permission);
+console.log(Notification.permission);
 //show notification
-function showNotification(){
-    const notification= new Notification('New message from imrany',{
+/*function showNotification(){
+    const notification= new Notification('New message from Charitable',{
         body:'Hey mate, wanna catch up soon?',
         icon:'../img/icons/icon-72x72.png',
-    
+        timeout:3000
+       
        
     });
     notification.onclick=()=>{
-        window.location.focus()
-        this.close();  
+        //window.location.href="https://wa.me/+254754423664"
+        const modal=document.querySelector('#modal-notification');
+        M.Modal.getInstance(modal).open();
     }
     //setTimeout(()=>notification.close(),10*10)
-    setTimeout(notification.close.bind, 500);
-}
+    setTimeout(notification.close(),100);
+}*/
 //checking and asking permission
 if(Notification.permission === 'granted'){
-   showNotification();
+   //showNotification();
 }else if(Notification.permission !== 'denied'){
     Notification.requestPermission().then(permission =>{
         if(permission === "granted"){
-            showNotification();
+            //showNotification();
         }
     });
-};*/
+};
 
 //geolocation
 /*const successCallback=(position)=>{

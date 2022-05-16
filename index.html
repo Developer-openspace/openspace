@@ -29,8 +29,7 @@
         <li class="logged-in"><a href="#" class="grey-text modal-trigger  used" data-target="modal-account">Account</a></li>
         <li class="logged-in"><a href="#" class="grey-text used" id="logout">Logout</a></li>
         <li class="admin"><a href="#" class="grey-text modal-trigger used" data-target="modal-create">Add Event</a></li>
-        <li class="logged-out"><a href="#" class="grey-text modal-trigger used" data-target="modal-login">Login</a></li>
-        <li class="logged-out"><a href="#" class="grey-text used bn-signup">Sign up</li>
+        <li class="logged-out"><a href="#" class="grey-text used" id="bn-signup">Sign in with Google</li>
       </ul>
 
       <ul id="nav-mobile" class="sidenav"> <li class="logged-in">
@@ -38,16 +37,53 @@
         <li class="logged-in"><a href="./pages/Events.html">Events</a></li>
         <li class="logged-in"><a href="./pages/Gallery.html">Gallery</a></li>
         <li class="logged-in" ><a href="#" class="grey-text modal-trigger used" data-target="modal-account">Account</a></li>
-        <li class="logged-in"><a href="#" class="grey-text used" id="logout">Logout</a></li>
+        <li class="logged-in"><a href="#" class="grey-text used" id="logout1">Logout</a></li>
         <li class="admin"><a href="#" class="grey-text modal-trigger used" data-target="modal-create">Add Event</a></li>
-        <li class="logged-out"><a href="#" class="grey-text modal-trigger used" data-target="modal-login">Login</a></li>
-        <li class="logged-out"><a href="#" class="grey-text used bn-signup">Sign up</li>
+        <li class="logged-out"><a href="#" class="grey-text used" id="bn-signup1">Sign in with Google</li>
       </ul>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons orange-text">menu</i></a>
     </div>
   </nav>
 
-
+<!--notification modal-->
+<div id="modal-notification" class="modal">
+  <div class="modal-content">
+    <h4>Reaction</h4><br />
+    <form id="notification-form">
+      <div class="input-field">
+        <input type="text" id="notification-phone" required />
+        <label for="notification-phone">Enter Your Phone number</label>
+      </div>
+      <div class="input-field">
+        <input type="text" id="notification-name" required />
+        <label for="notification-name">Enter Your Name</label>
+      </div>
+      <button class="btn orange lighten-1 z-depth-0">Submit</button>
+      <p class="error pink-text center-align"></p>
+    </form>
+  </div>
+</div>
+<!--support modal-->
+<div id="modal-support" class="modal">
+  <div class="modal-content">
+    <h5 class="light">Send any amount to <q>0703733399</q> to support my work.</h5><h6 class="light">
+      it's greatly appreciated, your support means a lot to me. After sending the amount via mpesa. Copy and paste the
+      confirmation code of the message and the number your used to send in the form below.
+    </h6><br />
+    <form id="notification-support">
+      <div class="input-field">
+        <input type="number" id="notification-phonesupport" required />
+        <label for="notification-phonesupport">Enter Your Phone number</label>
+      </div>
+      <div class="input-field">
+        <input type="text" id="notification-namesupport" required />
+        <label for="notification-namesupport">Enter Mpesa Confirmation code</label>
+      </div>
+      <button class="btn orange lighten-1"style="z-depth-0">Submit</button>
+      <p class="error pink-text center-align"></p>
+    </form>
+  </div>
+</div>
   <!-- LOGIN MODAL -->
   <div id="modal-login" class="modal">
     <div class="modal-content">
@@ -201,13 +237,14 @@
           <ul>
             <li><a class="orange-text" href="./index.html">Home</a></li>
             <li><a class="orange-text" href="./pages/Events.html">Events</a></li>
-            <li><a class="orange-text" href="./pages/Gallery.html">Gallery</a></li>
-          </ul>
+            <li><a class="orange-text" href="./pages/Gallery.html">Gallery</a></li><br/>
+            </ul>
         </div>
         <div class="col l3 s12"><br/>
           <div class="badge-base LI-profile-badge " data-locale="en_US" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="imrany-tech-60645323a" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://ke.linkedin.com/in/imranyy?trk=profile-badge"><i class="material-icons">fitbit</i>My LinkedIn</a></div>
-          <a class="green-text text-darken-3" href="http://wa.me/+254754423664"><i class="material-icons">whatsapp</i>My Whatsapp</a>
-         </div>
+          <a class="green-text text-darken-3" href="http://wa.me/+254754423664"><i class="material-icons">whatsapp</i>My Whatsapp</a><br/><br/><br/>
+          <button class="btn-small grey white-text modal-trigger waves-effect waves-light" data-target="modal-support" style="border-radius:2px ; font-family: monospace; z-index: 0;">Support My work <i class="material-icons white-text left">mood</i></button>
+        </div>
         
       </div>
     </div>
