@@ -4,7 +4,7 @@
   "description": "",
   "main": "firebaseConfig.js",
   "scripts": {
-    "build":"rm -r ./build",	
+    "build": "rm -r ./dist&& grunt run",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,7 +24,9 @@
   },
   "devDependencies": {
     "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^4.0.0",
     "grunt-contrib-jshint": "^3.2.0",
-    "grunt-contrib-uglify": "^5.2.2"
+    "grunt-contrib-uglify": "^5.2.2",
+    "tailwindcss": "^3.3.1"
   }
 }
