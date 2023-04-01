@@ -1,3 +1,5 @@
+import { Err, geoPostion } from "./types/types.js"
+
 //setupUI for logged in and logged out users
 const loggedinLink=document.querySelectorAll('.logged-in')
 const loggedoutLink=document.querySelectorAll('.logged-out')
@@ -21,14 +23,14 @@ if(Notification.permission === 'granted'){
          }
      });
  };
- 
- //geolocation
-const successCallback=(position)=>{
+
+//geolocation
+const successCallback=(position:geoPostion)=>{
     //get position then store it in firestore
-    //console.log(position.coords)
     const {latitude, longitude}= position.coords;
+    console.log(latitude,longitude)
 }
-const errorCallback=(error)=>{
-    console.error(error);
+const errorCallback=(error:Err)=>{
+    console.error(error.message);
 }
 navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
