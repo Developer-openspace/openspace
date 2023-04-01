@@ -4,7 +4,8 @@
   "description": "",
   "main": "firebaseConfig.js",
   "scripts": {
-    "build": "rm -r ./dist&& tsc &&grunt run",
+    "start": "grunt run&& tsc",
+    "build": "rm -r ./dist&& grunt run&& tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,11 +19,8 @@
     "url": "https://github.com/imranyy/charity/issues"
   },
   "homepage": "https://github.com/imranyy/charity#readme",
-  "dependencies": {
-    "grunt": "^1.6.1",
-    "push.js": "^1.0.12"
-  },
   "devDependencies": {
+    "grunt": "^1.6.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^4.0.0",
     "grunt-contrib-jshint": "^3.2.0",
