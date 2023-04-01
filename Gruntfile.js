@@ -20,8 +20,8 @@ module.exports=function(grunt){
             css:{
                 files:[
                     {
-                        src:'src/style.css',
-                        dest:'dist/style.css'
+                        src:'src/index.css',
+                        dest:'dist/index.css'
                     }
                 ]
             }
