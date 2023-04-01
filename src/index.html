@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <!--meta name="viewport" content="360px"/-->
+  <meta name="theme-color" content="#FFE1C4"/>
+  <title>Charitable</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="./css/materialize.min.css"  rel="stylesheet" media="screen,projection"/>
+  <link href="./css/style.css"  rel="stylesheet" media="screen,projection"/>
+  <link rel="manifest" href="./manifest.json"/>
+  <!--linkedin badge-->
+  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+   <!-- ios support -->
+   <link rel="apple-touch-icon" href="/img/icons/"/>
+   <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
+</head>
+<body>
+  <nav class="amber lighten-5" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo orange-text text-darken-5 customfont left"><i class="material-icons" style="font-size: larger;">child_care</i>Charitable</a>
+      <ul class="right hide-on-med-and-down">
+        <li class="logged-in" style="display: none;"><a href="./index.html" class="active">Home</a></li>
+        <li class="logged-in" style="display: none;"><a href="./pages/Events.html" class="grey-text">Events</a></li>
+        <li class="logged-in" style="display: none;"><a href="./pages/Gallery.html" class="grey-text">Gallery</a></li>
+        <li class="logged-in" style="display: none;"><a href="#" class="grey-text modal-trigger  used" data-target="modal-account">Account</a></li>
+        <li class="logged-in" style="display: none;"><a href="#" class="grey-text used" id="logout">Logout</a></li>
+        <li class="admin" style="display: none;"><a href="#" class="grey-text modal-trigger used" data-target="modal-create">Add Event</a></li>
+        <li class="logged-out" style="display: none;"><a href="#" class="grey-text used" id="bn-signup">Sign in with Google</li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav"> 
+        <li class="logged-in" style="display: none;" ><a href="../index.html" class="active">Home</a></li>
+        <li class="logged-in" style="display: none;"><a href="./pages/Events.html">Events</a></li>
+        <li class="logged-in" style="display: none;"><a href="./pages/Gallery.html">Gallery</a></li>
+        <li class="logged-in"  style="display: none;"><a href="#" class="grey-text modal-trigger used" data-target="modal-account">Account</a></li>
+        <li class="logged-in" style="display: none;"><a href="#" class="grey-text used" id="logout1">Logout</a></li>
+        <li class="admin" style="display: none;"><a href="#" class="grey-text modal-trigger used" data-target="modal-create">Add Event</a></li>
+        <li class="logged-out" style="display: none;"><a href="#" class="grey-text used" id="bn-signup1">Sign in with Google</li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons orange-text">menu</i></a>
+    </div>
+  </nav>
+
+<!--support modal-->
+<div id="modal-support" class="modal">
+  <div class="modal-content">
+    <h5 class="light">Contact Our Developers on <q>+254703733399</q> to support their work.</h5><h6 class="light">
+      Any job offers or freelance opportunities or  you want a website, a blog or anything of the sort. Call the number above. Or text on <e class="green-text">Whatsapp</e> : +25475442364</h6>
+  </div>
+</div>
+  <!-- Answer MODAL -->
+  <div id="modal-answer" class="modal">
+    <div class="modal-content">
+      <h4>Fun activity:</h4><br />
+      <form id="answer-form">
+        <div class="input-field">
+          <input type="text" id="answer" name="answer" required />
+          <label for="answer">Enter Your Answer in small letters</label>
+        </div>
+        <button class="btn orange lighten-1 z-depth-0">Submit</button>
+        <p class="error"></p>
+      </form>
+    </div>
+  </div>
+  <!--modal-group-->
+  <div id="modal-group" class="modal">
+    <div class="modal-content">
+      <h4>Join Group</h4><br />
+      <form id="group-form">
+        <div class="input-field">
+          <input type="number" id="telnumber" name="number"  required />
+          <label for="telnumber">Enter Your Whatsapp Number</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="username" name="username" required />
+          <label for="useranswer">Enter Your Name (first name only)</label>
+        </div>
+        <button class="btn orange lighten-1 z-depth-0">Submit</button>
+        <p class="error pink-text center-align"></p>
+      </form>
+    </div>
+  </div>
+  <!-- Add Event MODAL -->
+  <div id="modal-create" class="modal">
+    <div class="modal-content">
+      <h4>Create Guide</h4><br />
+      <form id="create-form">
+        <div class="input-field">
+          <input type="text" id="title" name="title"  required>
+          <label for="title">Event Title</label>
+        </div>
+        <div class="input-field">
+          <textarea id="content" name="content" class="materialize-textarea" required></textarea>
+          <label for="content">Content</label>
+        </div>
+        <button class="btn orange lighten-1 z-depth-0">Create</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ACCOUNT MODAL -->
+  <div id="modal-account" class="modal">
+    <div class="modal-content center-align">
+      <h4>Account details</h4><br />
+      <div class="account-details"></div>
+    </div>
+  </div>
+  <!--loggedout user modal-->
+  <div id="modal-loggedout" class="modal">
+    <div class="modal-content">
+      <h4 class="light grey-text">OOPS!!</h4>
+      <h5 class="light grey-text">Currently You can not access this service.
+        Please,sign in</h5><br/>
+    </div>
+  </div>
+  <!--Donate modal-->
+  <div id="modal-donate" class="modal">
+    <div class="modal-content">
+      <h4 class="light">for more information about Donations.</h4>
+      <h5 class="light">Please contact: +254754423664...THIS SERVICE WOULD BE HANDLE.</h5><br/>
+    </div>
+  </div>
+  
+   
+
+<!--content-->
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container texth1">
+        <br><br>
+        <h1 class="header center orange-text text-lighten-2 ">Fight 4 a Better world!</h1>
+        <div class="row center">
+          <h5 class="header col s12 flow-text white-text">We reach out to the disabled, needy and the old.</h5>
+        </div>
+        <div class="row center">
+          <a href="#" data-target="modal-group" id="download-button" class="btn-small waves-effect waves-light orange modal-trigger lighten-1 logged-in" style="display: none;">Join group</a>
+        </div>
+        <br><br>
+
+      </div> 
+    </div>
+    <div class="parallax"><img src="./img/Giving-to-charity-at-work-2.png" alt="Unsplashed background img 1"></div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s24 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">assessment</i></h2>
+            <h5 class="center">Shared Experience</h5>
+
+            <p class="light">Through this program we've reached out to schools, orphanages and old peoples' camps. We've made homeless kids, orphans and old people experience love. Along the way, we've learnt: "Helping others with the little you have, it's worth millions in their hearts".  </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">Working together</h5>
+
+            <p class="light">We have been collecting donates from the community and willingly friends. Thankful, We raised a suitable amount that funded our last activity (check the event page). We hope to get enough funding for our next event as we reach out for those in need...</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">videogame_asset</i></h2>
+            <h5 class="center">Fun Activity</h5>
+
+            <h4 class="light center"><i>Riddle Riddle</i>: <q id="question"></q></h4>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container texth1">
+        <div class="row center">
+          <h4 class="header center col s12  white-text">Visit Events page..to get an overview of our activities...</h4>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="img/Charity-Image-1200x900.png" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4 class="logged-in" style="display: none;">Provide your answer/ Donate </h4>
+          <h4 class="logged-out" style="display: none;">Provide your answer</h4>
+          <button  id="download-button" style="display: none;" class="btn-small waves-effect waves-light orange lighten-1 left modal-trigger logged-in"  data-target="modal-answer"><i class="material-icons right" >notifications</i>Answer</button>   <button id="download-button" style="display: none;" class="btn-small waves-effect waves-light orange modal-trigger lighten-1 right logged-in" data-target="modal-donate"><i class="material-icons right">volunteer_activism</i>Donate</button>
+          <button  id="download-button" style="display: none;" class="btn-small waves-effect waves-light grey lighten-1 modal-trigger logged-out"  data-target="modal-loggedout"><i class="material-icons right" >notifications</i>Answer</button> 
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot center">
+      <div class="container texth1 ">
+          <h4 class="header  white-text">Check Gallery and see taken photographs of different events...</h4>
+      </div>
+    </div>
+    <div class="parallax"><img src="img/charity.jpg" alt="Unsplashed background img 3"></div>
+  </div>
+
+  <footer class="page-footer amber lighten-5 ">
+    <div class="container ">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="orange-text">Fight for a better world!!!</h5>
+          <h6 class="orange-text text-lighten-1 light">We are a team of University students working together to help and donate items for the less fortunate people, the disable and old. You can help us run this program by donating any amount on this site. It would help support and continue development this program. We greatly appreciated those who have a heart to help us .</h6>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="orange-text logged-in" style="display: none;">Pages</h5>
+          <ul>
+            <li class="logged-in" style="display: none;"><a class="orange-text" href="./index.html">Home</a></li>
+            <li class="logged-in" style="display: none;"><a class="orange-text" href="./pages/Events.html">Events</a></li>
+            <li class="logged-in" style="display: none;"><a class="orange-text" href="./pages/Gallery.html">Gallery</a></li><br/>
+            </ul>
+        </div>
+        <div class="col l3 s12"><br/>
+          <div style="display: none;" class="badge-base LI-profile-badge logged-in" data-locale="en_US" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="imrany-tech-60645323a" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://ke.linkedin.com/in/imranyy?trk=profile-badge"><i class="material-icons">fitbit</i>My LinkedIn</a></div>
+          <a class="green-text text-darken-3" href="http://wa.me/+254754423664"><i class="material-icons">whatsapp</i>My Whatsapp</a><br/><br/><br/>
+          <button style="display: none;" class="btn-small grey white-text modal-trigger waves-effect waves-light logged-in" data-target="modal-support" style="border-radius:2px ; font-family: monospace; z-index: 0;">Support My work <i class="material-icons white-text left">mood</i></button>
+        </div>
+        
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container black-text">
+        Made by <a class="orange-text text-darken-3" href="http://wa.me/+254754423664">Ringside</a>
+     </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="./js/auth.js" type="module"></script>
+  <script src="./firebaseConfig.js" type="module"></script>
+  <script src="./js/materialize.min.js"></script>
+  <script src="./js/init.js" type="module"></script>
+  <script src="./js/app.js"></script>
+  <script src="./js/pushinit.js"></script>
+
+  </body>
+</html>
