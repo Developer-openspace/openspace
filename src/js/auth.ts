@@ -1,4 +1,3 @@
-
 import {signInWithGoogle,signout} from '../firebaseConfig.js';
 //sign in
 const signup=document.querySelector('#bn-signup');
@@ -9,6 +8,7 @@ const signup1=document.querySelector('#bn-signup1');
 signup1.addEventListener('click',()=>{
    signInWithGoogle();
 });
+
 //logout
 const logout=document.querySelector('#logout');
 logout.addEventListener('click',()=>{
