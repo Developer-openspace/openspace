@@ -1,113 +1,81 @@
-import {signInWithGoogle,signout} from '../firebase/index.js';
-const auth=getAuth(app);
-const provider= new GoogleAuthProvider();
+import { auth, provider, signInWithPopup, signOut} from '../firebase/index.js';
+import { showSignInNotification, showSignInNotificationErr, showSignOutNotification } from '../notifications/index.js';
+import { Err, ResultType } from "../types/types.js";
+
  //signin
- export  const signInWithGoogle=()=>{
-    signInWithPopup(auth, provider).then((result:ResultType)=>{
-      const name=result.user.displayName;
-      const email= result.user.email;
-      const pic=result.user.photoURL;
+function signInWithGoogle():void{
+  signInWithPopup(auth, provider).then((result:ResultType)=>{
+    const name=result.user.displayName;
+    const email= result.user.email;
+    const pic=result.user.photoURL;
 
-      localStorage.setItem("name",name)
-      localStorage.setItem("email",email)
-      localStorage.setItem("pic",pic)
-      showNotification();
-      window.Location.reload();
-    }).catch(()=>{
-      showNotificationErr()
-    })
-}
-  //logOut
-  export const signout=()=>{
-    signOut(auth).then(()=>{
-      showNotificationSignout()
-    }).catch((err:any)=>{
-      console.log(err.message)
-    })
-  }
-
-  //signin notification
-  function showNotification(){
-    const notification= new Notification('Successfull Sign in',{
-        body:localStorage.getItem("name"),
-        icon:localStorage.getItem("pic"),
-        timeout:3000,
-  });
-    notification.onclick=function(){
-      window.parent.focus();
-      this.close();
-    };
-}  //signin notification error
-function showNotificationErr(){
-  const notification=new Notification('Unsuccessfull Sign in',{
-    body:"Try again...",
-    icon:'./img/icons/icon-72x72.png',
-    timeout:3000
-  });
-  notification.onclick=function(){
-    window.parent.focus();
-    this.close();
-  }
-} //signout notification
-function showNotificationSignout(){
-  const notification =new Notification('You have Log out',{
-    body:'Sad to see you go..Come back soon..they is more going around here',
-    icon:'./img/icons/icon-72x72.png',
-    timeout:2000
-  });
-  notification.onclick=function(){
-    window.parent.focus();
-    this.close();
-  }
+    localStorage.setItem("name",name)
+    localStorage.setItem("email",email)
+    localStorage.setItem("pic",pic)
+    showSignInNotification();
+    window.location.reload();
+  }).catch((err:Err)=>{
+    showSignInNotificationErr(err)
+  })
 }
 
+//logOut
+function signout():void{
+  signOut(auth).then((message:any)=>{
+    showSignOutNotification(message)
+  }).catch((err:Err)=>{
+    showSignOutNotification(err.message)
+  })
+}
+
+  
 //sign in
-const signup=document.querySelector('#bn-signup');
-signup.addEventListener('click',()=>{
-   signInWithGoogle();
-});
-const signup1=document.querySelector('#bn-signup1');
-signup1.addEventListener('click',()=>{
-   signInWithGoogle();
-});
+const signup=document.querySelectorAll('#bn-signup');
+signup.forEach(i=>{
+  i.addEventListener('click',()=>{
+    signInWithGoogle();
+  });
+})
+
 
 //logout
-const logout=document.querySelector('#logout');
-logout.addEventListener('click',()=>{
-   signout();
-})
-const logout1=document.querySelector('#logout1');
-logout1.addEventListener('click',()=>{
-   signout();
+const logout=document.querySelectorAll('#logout');
+logout.forEach(i=>{
+  i.addEventListener('click',()=>{
+    signout();
+  })
 })
 
-
+//setupUI for logged in and logged out users
+const loggedinLink=document.querySelectorAll('.logged-in')
+const loggedoutLink=document.querySelectorAll('.logged-out')
+function setupUI(user: any):void{
+  if(user){
+    loggedinLink.forEach(item=>item.style.display='block')
+    loggedoutLink.forEach(item=>item.style.display='none')
+  }else{
+    loggedinLink.forEach(item=>item.style.display='none')
+    loggedoutLink.forEach(item=>item.style.display='block')
+  }
+}
 
 //listening to user auth status change 
-import {setupUI} from './js/init.js'
-import { ResultType } from "../types/types";
- auth.onAuthStateChanged((user)=>{
-     //going to controll what users see if logged in or out
-     if(user){
-       //console.log('user is logged in', user)
-       //acount details
-        const account =document.querySelector('.account-details');
-        let html='';
-          const li =`
-            <h4>
-            <p>${localStorage.getItem('name')}</p>
-            <p>${localStorage.getItem('email')}</p>
-            <img src='${localStorage.getItem('pic')}' />
-            </h4>
-          `
-         
-        account.innerHTML =  html += li;
-
-        setupUI(user)
-     } else {
-       //console.log('user is logged outer',user)
-       const account =document.querySelector('.account-details');
-        account.innerHTML = [];
-       setupUI()
-     }
-   })
+auth.onAuthStateChanged((user: any)=>{
+  if(user){
+    //acount details
+    const account =document.querySelector('.account-details');
+      const li =`
+        <h4>
+        <p>${localStorage.getItem('name')}</p>
+        <p>${localStorage.getItem('email')}</p>
+        <img src='${localStorage.getItem('pic')}' />
+        </h4>
+      `
+    account.innerHTML+= li;
+    setupUI(user)
+  } else {
+    const account =document.querySelector('.account-details');
+    account.innerHTML = [];
+    setupUI(null)
+  }
+})

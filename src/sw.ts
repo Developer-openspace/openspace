@@ -1,25 +1,17 @@
- /*const staticCacheName='site-static';
+ const staticCacheName='site-static';
  const dynamicCache='site-dynamic';
 
  const assets=[
-     '/',
+    '/',
     '/index.html',
+    '/index.css',
     '/pages/Fallback.html',
-    '/css/materialize.min.css',
-    '/css/style.css',
-    '/js/app.js',
-    '/js/init.js',
-    '/js/materialize.min.js',
-    '/img/38522399-assistance-volunteer-support-give-help-donate-charity-concept.webp',
-    '/img/Charity-Image-1200x900.png',
-    '/img/charity.jpg',
-    '/img/financials-header.jpg',
-    '/img/Giving-to-charity-at-work-2.png',
-    '/img/IMG-20220509-WA0001.jpg',
-    '/img/IMG-20220509-WA0002.jpg',
-    '/img/IMG-20220509-WA0003.jpg',
-    '/img/IMG-20220509-WA0004.jpg',
-    '/img/IMG-20220509-WA0005.jpg',
+    '/index.js',
+    '/notifications/index.js',
+    '/firebase/index.js',
+    '/db/index.js',
+    '/auth/index.js',
+    '/types/types.js',
     '/manifest.json',
     'https://fonts.googleapis.com/icon?family=Material+Icons',
     'https://fonts.gstatic.com/s/materialicons/v128/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2'
@@ -34,22 +26,25 @@ self.addEventListener('install', evt=>{
     })
   )
 });
+
 //cache limit function
-const limitCacheSize=(name,size)=>{
-    cache.open(name).then(cache =>{
-        cache.keys().then(keys=>{
+const limitCacheSize=(name:String,size:Number)=>{
+    cache.open(name).then((cache:any) =>{
+        cache.keys().then((keys:any)=>{
             if(keys.length >size){
-                cache.delete(keys[0].then(
-                    limitCacheSize(name,size)))
+                cache.delete(keys[0]
+                .then(limitCacheSize(name,size)))
             }
         })
     })
 }
+
 //activate service worker.
 self.addEventListener('activate',evt=>{
     evt.waitUntil(
         caches.keys().then(keys=>{
-            return Promise.all(keys.filter(key=> key !== staticCacheName && key !== dynamicCache).map(key=>caches.delete(key))
+            return Promise.all(keys.filter(key=> key !== staticCacheName && key !== dynamicCache)
+            .map(key=>caches.delete(key))
             )
         })
     )
@@ -71,4 +66,3 @@ self.addEventListener('fetch', evt=>{
         })
     )
 });
-*/

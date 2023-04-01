@@ -14,15 +14,18 @@
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
+  const auth=getAuth(app);
+  const provider= new GoogleAuthProvider();
+  const db=getFirestore(app);
   
 export{
-  app,
+  auth,
   getAuth,
-  GoogleAuthProvider,
+  provider,
   signInWithPopup,
   signOut,
   onAuthStateChanged,
-  getFirestore,
+  db,
   collection,
   getDocs,
   addDoc

@@ -1,17 +1,22 @@
 import { Err, geoPostion } from "./types/types.js"
 
-//setupUI for logged in and logged out users
-const loggedinLink=document.querySelectorAll('.logged-in')
-const loggedoutLink=document.querySelectorAll('.logged-out')
-export const setupUI=(user)=>{
-  if(user){
-    loggedinLink.forEach(item=>item.style.display='block')
-    loggedoutLink.forEach(item=>item.style.display='none')
-  }else{
-    loggedinLink.forEach(item=>item.style.display='none')
-    loggedoutLink.forEach(item=>item.style.display='block')
-  }
+if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('./sw.js')
+    .then(()=>console.log('sw registered'))
+    .catch((err)=>console.log('sw not registerd', err))
 }
+
+//geolocation
+const successCallback=(position:geoPostion)=>{
+    const {latitude, longitude}= position.coords;
+    console.log(latitude,longitude)
+}
+const errorCallback=(error:Err)=>{
+    console.error(error.message);
+}
+navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+
+
 
 //checking and asking permission
 if(Notification.permission === 'granted'){
@@ -24,13 +29,3 @@ if(Notification.permission === 'granted'){
      });
  };
 
-//geolocation
-const successCallback=(position:geoPostion)=>{
-    //get position then store it in firestore
-    const {latitude, longitude}= position.coords;
-    console.log(latitude,longitude)
-}
-const errorCallback=(error:Err)=>{
-    console.error(error.message);
-}
-navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
