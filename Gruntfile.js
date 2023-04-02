@@ -6,8 +6,8 @@ module.exports=function(grunt){
             css:{
                 files:[
                     {
-                        src:'src/index.css',
-                        dest:'dist/index.css'
+                        src:'src/output.css',
+                        dest:'dist/output.css'
                     }
                 ]
             }
