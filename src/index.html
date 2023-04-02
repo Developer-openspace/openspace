@@ -70,30 +70,30 @@
     let items=[
       {
         logo:"./img/comp.jpg",
-        title:"Unicode Consortium",
-        desc:"Descriptions there are many unicode and consortuims",
-        link_title:"Unicode",
+        title:"Open Email",
+        desc:"Open email is an API created on nodejs. Its used to notify and give out updates to clients  via email. It's an email delivery microservice.",
+        link_title:"Open_email",
         link:"./pages/Fallback.html"
       },
       {
         logo:"./img/comp2.jpg",
-        title:"Unicode Consortium",
-        desc:"Descriptions there are many unicode and consortuims",
-        link_title:"Unicode",
+        title:"Medical Test",
+        desc:"An application that test user illness through machine learning algorithm",
+        link_title:"Medical_test",
         link:"./pages/Fallback.html"
       },
       {
         logo:"./img/anubis.jpg",
-        title:"Unicode Consortium",
-        desc:"Descriptions there are many unicode and consortuims",
-        link_title:"Unicode",
+        title:"Real App",
+        desc:"Real app is a server built on rust using actix-web, it serves files and directories to user",
+        link_title:"Real_app",
         link:"./pages/Fallback.html"
       },
       {
         logo:"./img/comp2.jpg",
-        title:"Unicode Consortium",
-        desc:"Descriptions there are many unicode and consortuims",
-        link_title:"Unicode",
+        title:"Coder Type",
+        desc:"Coder type is a game, we collaborated with marko (a youtuber), it's a game that test your typing speed and accuracy",
+        link_title:"Coder_type",
         link:"./pages/Fallback.html"
       }
     ]
@@ -108,7 +108,7 @@
               <div class="ml-8 flex flex-col">
                 <p class="text-2xl font-semibold">${i.title}</p>
                 <a href="${i.link}" class="text-slate-500 text-base" target="_blank">@${i.link_title}</a>
-                <p>${i.desc}</p>
+                <p>${i.desc.slice(0,70)}...</p>
               </div>
               <a href="${i.link}" target="_blank" class="max-sm:ml-9 max-sm:mt-5">
                 <button class="px-6 py-1 font-semibold rounded-2xl border-slate-400 border-2">Visit</button>
