@@ -18,7 +18,7 @@
 ]
 
 //installing service worker
-self.addEventListener('install', evt=>{
+self.addEventListener('install', (evt:any)=>{
   evt.waitUntil(
     caches.open(staticCacheName).then(cache=>{
         console.log('assests been added')
@@ -40,7 +40,7 @@ const limitCacheSize=(name:String,size:Number)=>{
 }
 
 //activate service worker.
-self.addEventListener('activate',evt=>{
+self.addEventListener('activate',(evt:any)=>{
     evt.waitUntil(
         caches.keys().then(keys=>{
             return Promise.all(keys.filter(key=> key !== staticCacheName && key !== dynamicCache)
@@ -51,7 +51,7 @@ self.addEventListener('activate',evt=>{
 });
 
 //fetch event
-self.addEventListener('fetch', evt=>{
+self.addEventListener('fetch', (evt:any)=>{
     evt.respondWith(
         caches.match(evt.request).then(cacheRes=>{
             return cacheRes || fetch(evt.request).then(async fetchRes=>{
