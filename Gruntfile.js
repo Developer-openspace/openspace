@@ -28,8 +28,20 @@ module.exports=function(grunt){
                         dest:'dist/manifest.json'
                     },
                     {
-                        src:"src/img",
-                        dest:'dist/img'
+                        src:"src/img/anubis.jpg",
+                        dest:'dist/img/anubis.jpg'
+                    },
+                    {
+                        src:"src/img/comp.jpg",
+                        dest:"dist/img/comp.jpg"
+                    },
+                    {
+                        src:"src/img/comp2.jpg",
+                        dest:"dist/img/comp2.jpg"
+                    },
+                    {
+                        src:"src/img/desk_top.jpg",
+                        dest:"dist/img/desk_top.jpg"
                     },
                     {
                         src:"src/img/icons",
