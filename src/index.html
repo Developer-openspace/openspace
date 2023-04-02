@@ -4,10 +4,10 @@
   <meta http-equiv="Content-Type" content="charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="theme-color" content="#FFE1C4"/>
-  <title>Charitable</title>
+  <title>Openspace | Home</title>
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="./index.css"  rel="stylesheet" media="screen,projection"/>
+  <link href="output.css"  rel="stylesheet"/>
   <link rel="manifest" href="./manifest.json"/>
   <!--linkedin badge-->
   <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
@@ -16,35 +16,123 @@
    <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
 </head>
 <body>
-  
+  <main class="hero bg-orange-400 sm:h-[80vh] max-sm:h-[38vh] text-white">
+    <nav class="w-[100%] p-5 flex justify-between text-white">
+      <div class="brand flex text-xl max-sm:text-base font-semibold">
+        <a href="./index.html">Developer Openspace</a>
+      </div>
+      <ul class="flex flex-row text-lg nav-lnk">
+        <li class="mx-4"><a href="https://github.com/orgs/Developer-openspace/repositories" rel="noopener" target="_blank">Projects</a></li>
+        <li class="mx-4"><a href="https://github.com/orgs/Developer-openspace/people" rel="noopener" target="_blank">Members</a></li>
+        <li class="mx-4"><a href="https://github.com/orgs/Developer-openspace" rel="noopener" target="_blank">GitHub</a></li>
+      </ul>
+    </nav>
 
-
-  <footer class="page-footer amber lighten-5 ">
-        <div class="col l3 s12">
-          <h5 class="orange-text logged-in" style="display: none;">Pages</h5>
-          <ul>
-            <li class="logged-in" style="display: none;"><a class="orange-text" href="./index.html">Home</a></li>
-            <li class="logged-in" style="display: none;"><a class="orange-text" href="./pages/Events.html">Events</a></li>
-            <li class="logged-in" style="display: none;"><a class="orange-text" href="./pages/Gallery.html">Gallery</a></li><br/>
-            </ul>
-        </div>
-        <div class="col l3 s12"><br/>
-          <div style="display: none;" class="badge-base LI-profile-badge logged-in" data-locale="en_US" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="imrany-tech-60645323a" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://ke.linkedin.com/in/imranyy?trk=profile-badge"><i class="material-icons">fitbit</i>My LinkedIn</a></div>
-          <a class="green-text text-darken-3" href="http://wa.me/+254754423664"><i class="material-icons">whatsapp</i>My Whatsapp</a><br/><br/><br/>
-          <button style="display: none;" class="btn-small grey white-text modal-trigger waves-effect waves-light logged-in" data-target="modal-support" style="border-radius:2px ; font-family: monospace; z-index: 0;">Support My work <i class="material-icons white-text left">mood</i></button>
-        </div>
-        
+    <div class="flex flex-col sm:ml-20 sm:my-24 max-sm:my-14">
+      <div class="flex flex-col max-sm:items-center">
+        <p class="max-sm:text-4xl text-6xl font-extrabold">Openspace</p>
+        <p class="max-sm:text-base text-xl font-semibold max-sm:text-center">We work and contribute on opensource projects</p>
       </div>
     </div>
-    <div class="footer-copyright">
-      <div class="container black-text">
-        Made by <a class="orange-text text-darken-3" href="http://wa.me/+254754423664">Ringside</a>
-     </div>
-    </div>
-  </footer>
+  </main>
 
+  <main class="flex flex-col items-center py-20" id="content">
+    
+  </main>
+
+<footer class="flex bg-orange-400 max-sm:flex-col max-sm:items-center p-10 text-white">
+  <a href="https://github.com/orgs/Developer-openspace/repositories" rel="noopener" target="_blank">
+    <button class="bg-white text-black text-base rounded-[50px] px-5 py-2 font-medium">
+      Explore Projects
+    </button>
+  </a>
+  
+  <div class="sm:ml-16 max-sm:mt-10">
+    <p class="text-xl font-semibold mb-3">Social Links</p>
+    <div class="badge-base LI-profile-badge" 
+    data-locale="en_US" data-size="medium" data-theme="light" 
+    data-type="VERTICAL" data-vanity="imrany-tech-60645323a" 
+    data-version="v1"
+    >
+      <a class="badge-base__link LI-simple-link text-lg font-light" href="https://ke.linkedin.com/in/imranyy?trk=profile-badge">
+        LinkedIn
+      </a>
+    </div>
+    <a href="https://github.com/orgs/Developer-openspace" rel="noopener" target="_blank">
+      Organization
+    </a>
+  </div>
+
+</footer>
 
   <!--  Scripts-->
+  <script type="module">
+    let items=[
+      {
+        logo:"./img/comp.jpg",
+        title:"Unicode Consortium",
+        desc:"Descriptions there are many unicode and consortuims",
+        link_title:"Unicode",
+        link:"./pages/Fallback.html"
+      },
+      {
+        logo:"./img/comp.jpg",
+        title:"Unicode Consortium",
+        desc:"Descriptions there are many unicode and consortuims",
+        link_title:"Unicode",
+        link:"./pages/Fallback.html"
+      },
+      {
+        logo:"./img/comp.jpg",
+        title:"Unicode Consortium",
+        desc:"Descriptions there are many unicode and consortuims",
+        link_title:"Unicode",
+        link:"./pages/Fallback.html"
+      },
+      {
+        logo:"./img/comp.jpg",
+        title:"Unicode Consortium",
+        desc:"Descriptions there are many unicode and consortuims",
+        link_title:"Unicode",
+        link:"./pages/Fallback.html"
+      }
+    ]
+    const content=document.getElementById("content");
+    items.forEach(i=>{
+      let li=`
+          <div class="flex max-sm:flex-col max-sm:items-center border-b-2 pb-5  mb-10">
+            <img class="sm:w-24 sm:h-22 rounded-xl max-sm:h-[40vw] max-sm:w-[70vw] max-sm:mb-4" src="${i.logo}" alt="image"/> 
+            <div class="flex max-sm:flex-col ">
+              <div class="ml-8 flex flex-col">
+                <p class="text-2xl font-semibold">${i.title}</p>
+                <a href="${i.link}" class="text-slate-500 text-base" target="_blank">@${i.link_title}</a>
+                <p>${i.desc}</p>
+              </div>
+              <a href="${i.link}" target="_blank" class="max-sm:ml-9 max-sm:mt-5">
+                <button class="px-6 py-1 font-semibold rounded-2xl border-slate-400 border-2">Visit</button>
+              </a>
+            </div>
+          </div>
+      `;
+      content.innerHTML+=li;
+    })
+
+    const hero=document.querySelector(".hero");
+    let images=[
+    `url("./img/comp2.jpg")`,
+    `url("./img/comp.jpg")`,
+    `url("./img/anubis.jpg")`
+    ]
+    
+    for(n=0;n<images.length;n++) {
+      setInterval(()=>{
+        hero.style.background=images[n]
+        hero.style.backgroundPosition=`center`
+        hero.style.backgroundSize=`cover`
+        console.log(n)
+      },3000)
+    }
+  </script>
   <script src="./js/auth.js" type="module"></script>
   <script src="./firebaseConfig.js" type="module"></script>
   <script src="./js/app.js"></script>
