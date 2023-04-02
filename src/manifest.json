@@ -1,7 +1,7 @@
 {
-    "name":"Charitable",
-    "short_name":"Charity",
-    "description":"an app for donating to the poor, old and disable.",
+    "name":"Openspace",
+    "short_name":"Openspace",
+    "description":"Openspace is an app that connects developers",
     "start_url":"/index.html",
     "background_color":"#FFE9D2",
     "theme_color":"#FFE1C4",
