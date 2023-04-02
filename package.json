@@ -2,7 +2,7 @@
   "name": "charitable",
   "version": "1.0.0",
   "description": "",
-  "main": "firebaseConfig.js",
+  "main": "index.js",
   "scripts": {
     "start": "grunt run&& tsc",
     "build": "rm -r ./dist&& grunt run&& tsc",
