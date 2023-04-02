@@ -76,21 +76,21 @@
         link:"./pages/Fallback.html"
       },
       {
-        logo:"./img/comp.jpg",
+        logo:"./img/comp2.jpg",
         title:"Unicode Consortium",
         desc:"Descriptions there are many unicode and consortuims",
         link_title:"Unicode",
         link:"./pages/Fallback.html"
       },
       {
-        logo:"./img/comp.jpg",
+        logo:"./img/anubis.jpg",
         title:"Unicode Consortium",
         desc:"Descriptions there are many unicode and consortuims",
         link_title:"Unicode",
         link:"./pages/Fallback.html"
       },
       {
-        logo:"./img/comp.jpg",
+        logo:"./img/comp2.jpg",
         title:"Unicode Consortium",
         desc:"Descriptions there are many unicode and consortuims",
         link_title:"Unicode",
@@ -101,8 +101,10 @@
     items.forEach(i=>{
       let li=`
           <div class="flex max-sm:flex-col max-sm:items-center border-b-2 pb-5  mb-10">
-            <img class="sm:w-24 sm:h-22 rounded-xl max-sm:h-[40vw] max-sm:w-[70vw] max-sm:mb-4" src="${i.logo}" alt="image"/> 
-            <div class="flex max-sm:flex-col ">
+            <a href="${i.logo}" target="_blank">
+              <img class="sm:w-32 sm:h-22 rounded-xl max-sm:h-[40vw] max-sm:w-[70vw] max-sm:mb-4" src="${i.logo}" alt="image"/>   
+            </a>
+            <div class="flex max-sm:flex-col">
               <div class="ml-8 flex flex-col">
                 <p class="text-2xl font-semibold">${i.title}</p>
                 <a href="${i.link}" class="text-slate-500 text-base" target="_blank">@${i.link_title}</a>
@@ -124,14 +126,23 @@
     `url("./img/anubis.jpg")`
     ]
     
-    for(n=0;n<images.length;n++) {
-      setInterval(()=>{
-        hero.style.background=images[n]
-        hero.style.backgroundPosition=`center`
-        hero.style.backgroundSize=`cover`
-        console.log(n)
-      },3000)
-    }
+    setInterval(()=>{
+      hero.style.background=images[0]
+      hero.style.backgroundPosition=`center`
+      hero.style.backgroundSize=`cover`
+    },4000)
+
+    setInterval(()=>{
+      hero.style.background=images[1]
+      hero.style.backgroundPosition=`center`
+      hero.style.backgroundSize=`cover`
+    },8000)
+
+    setInterval(()=>{
+      hero.style.background=images[2]
+      hero.style.backgroundPosition=`center`
+      hero.style.backgroundSize=`cover`
+    },12000)
   </script>
   <script src="./js/auth.js" type="module"></script>
   <script src="./firebaseConfig.js" type="module"></script>
