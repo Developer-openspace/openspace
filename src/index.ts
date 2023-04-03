@@ -12,7 +12,7 @@ const successCallback=(position:geoPostion)=>{
     console.log(latitude,longitude)
 }
 const errorCallback=(error:Err)=>{
-    console.error(error.message);
+    console.log(error.message);
 }
 navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
