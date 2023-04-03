@@ -17,6 +17,10 @@
     '/img/comp.jpg',
     '/img/comp2.jpg',
     '/img/desk_top.jpg',
+    '/img/mail.png',
+    '/img/medical.png',
+    '/img/server.jpg',
+    '/img/type.jpeg',
     'https://fonts.googleapis.com/icon?family=Material+Icons',
     'https://fonts.gstatic.com/s/materialicons/v128/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2'
 ]
