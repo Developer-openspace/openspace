@@ -44,9 +44,41 @@ module.exports=function(grunt){
                         dest:"dist/img/desk_top.jpg"
                     },
                     {
-                        src:"src/img/icons",
-                        dest:'dist/img/icons'
-                    }
+                        src:"src/img/icons/code-72x72.jpg",
+                        dest:'dist/img/icons/code-72x72.jpg'
+                    },
+                    {
+                        src:"src/img/icons/code-96x96.jpg",
+                        dest:'dist/img/icons/code-96x96.jpg'
+                    },
+                    {
+                        src:"src/img/icons/code-128x128.jpg",
+                        dest:'dist/img/icons/code-128x128.jpg'
+                    },
+                    {
+                        src:"src/img/icons/code-144x144.jpg",
+                        dest:'dist/img/icons/code-144x144.jpg'
+                    },
+                    {
+                        src:"src/img/icons/code-152x152.jpg",
+                        dest:'dist/img/icons/code-152x152.jpg'
+                    },
+                    {
+                        src:"src/img/icons/code-192x192.jpg",
+                        dest:'dist/img/icons/code-192x192.jpg'
+                    },
+                    {
+                        src:"src/img/icons/code-256x256.jpg",
+                        dest:'dist/img/icons/code-256x256.jpg'
+                    },
+                    {
+                        src:"src/img/icons/code-384x384.jpg",
+                        dest:'dist/img/icons/code-384x384.jpg'
+                    },
+                    {
+                        src:"src/img/icons/code-512x512.jpg",
+                        dest:'dist/img/icons/code-512x512.jpg'
+                    },
                 ]
             }
         }
