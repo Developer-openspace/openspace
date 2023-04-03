@@ -133,16 +133,16 @@
     items.forEach(i=>{
       let li=`
           <div class="flex max-sm:flex-col max-sm:items-center border-b-2 pb-5  mb-10">
-            <a href="https://github.com/Developer-openspace${i.logo}">
+            <a href="${i.logo}">
               <img class="sm:w-32 sm:h-22 rounded-xl max-sm:border-[1px] max-sm:h-[40vw] max-sm:w-[60vw] max-sm:mb-4" src="${i.logo}" alt="image"/>   
             </a>
             <div class="flex max-sm:flex-col">
               <div class="ml-8 flex flex-col">
-                <p class="text-2xl font-semibold">${i.title}</p>
-                <a href="${i.link}" class="text-slate-500 text-base" target="_blank">@${i.link_title}</a>
+                <p class="text-xl font-semibold">${i.title}</p>
+                <a href="https://github.com/Developer-openspace${i.link}" class="text-slate-500 text-base">@${i.link_title}</a>
                 <p>${i.desc.slice(0,70)}...</p>
               </div>
-              <a href="${i.link}" target="_blank" class="max-sm:ml-9 max-sm:mt-5">
+              <a href="https://github.com/Developer-openspace${i.link}" class="max-sm:ml-9 max-sm:mt-5">
                 <button class="px-6 py-1 font-semibold rounded-2xl border-slate-400 border-2">Visit</button>
               </a>
             </div>
