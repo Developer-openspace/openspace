@@ -3,13 +3,12 @@
   import{getFirestore,collection,getDocs,addDoc} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
 
   const firebaseConfig = {
-    apiKey: "AIzaSyCXpmSlILMaKyAUCAEGXe7aO3V4rkHce3w",
-    authDomain: "charity-5a2c8.firebaseapp.com",
-    projectId: "charity-5a2c8",
-    storageBucket: "charity-5a2c8.appspot.com",
-    messagingSenderId: "1004201424415",
-    appId: "1:1004201424415:web:b9acc529e2f6444d73c72a",
-    measurementId: "G-80CLLFDVQR"
+    apiKey: "AIzaSyBWmwV2GDFK6eMlBeQtTrCc2mjULw3D3Js",
+    authDomain: "developer-openspace-dev.firebaseapp.com",
+    projectId: "developer-openspace-dev",
+    storageBucket: "developer-openspace-dev.appspot.com",
+    messagingSenderId: "19575002090",
+    appId: "1:19575002090:web:ab5a4fa895ab00f5055893"
   };
 
   // Initialize Firebase
