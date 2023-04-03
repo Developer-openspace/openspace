@@ -44,8 +44,24 @@ module.exports=function(grunt){
                         dest:"dist/img/desk_top.jpg"
                     },
                     {
-                        src:"src/img/icons/code-72x72.jpg",
-                        dest:'dist/img/icons/code-72x72.jpg'
+                        src:"src/img/mail.png",
+                        dest:"dist/img/mail.png"
+                    },
+                    {
+                        src:"src/img/medical.png",
+                        dest:"dist/img/medical.png"
+                    },
+                    {
+                        src:"src/img/server.jpg",
+                        dest:"dist/img/server.jpg"
+                    },
+                    {
+                        src:"src/img/type.jpeg",
+                        dest:"dist/img/type.jpeg"
+                    },
+                    {
+                        src:"src/img/icons/code-72x72.png",
+                        dest:'dist/img/icons/code-72x72.png'
                     },
                     {
                         src:"src/img/icons/code-96x96.jpg",
@@ -56,8 +72,8 @@ module.exports=function(grunt){
                         dest:'dist/img/icons/code-128x128.jpg'
                     },
                     {
-                        src:"src/img/icons/code-144x144.jpg",
-                        dest:'dist/img/icons/code-144x144.jpg'
+                        src:"src/img/icons/code-144x144.png",
+                        dest:'dist/img/icons/code-144x144.png'
                     },
                     {
                         src:"src/img/icons/code-152x152.jpg",
@@ -76,8 +92,8 @@ module.exports=function(grunt){
                         dest:'dist/img/icons/code-384x384.jpg'
                     },
                     {
-                        src:"src/img/icons/code-512x512.jpg",
-                        dest:'dist/img/icons/code-512x512.jpg'
+                        src:"src/img/icons/code-512x512.png",
+                        dest:'dist/img/icons/code-512x512.png'
                     },
                 ]
             }
