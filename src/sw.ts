@@ -36,8 +36,8 @@ self.addEventListener('install', (evt:any)=>{
 });
 
 //cache limit function
-const limitCacheSize=(name:String,size:Number)=>{
-    cache.open(name).then((cache:any) =>{
+const limitCacheSize=(name:string,size:number)=>{
+    caches.open(name).then((cache:any) =>{
         cache.keys().then((keys:any)=>{
             if(keys.length >size){
                 cache.delete(keys[0]
