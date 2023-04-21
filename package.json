@@ -1,10 +1,11 @@
 {
   "name": "openspace",
   "version": "1.0.0",
-  "description": "",
+  "description": "Get in touch to openspace",
   "main": "index.js",
   "scripts": {
     "start": "grunt run&& tsc",
+    "tailwindcss":"npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
     "build": "rm -r ./dist&& grunt run&& tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
